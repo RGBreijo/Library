@@ -2,6 +2,9 @@
 
 let myLibary = [];
 
+let formAddBtnm = document.querySelector("#addBtnInForm").addEventListener('click', addBookToLibrary);
+
+
 
 
 /**
@@ -23,5 +26,23 @@ function Book(title, author, pages, read)
 
 function addBookToLibrary()
 {
-    // 
+
+    // Grab book information 
+    let bookTitle = document.querySelector("#title").value;
+    let bookAuthor = document.querySelector("#author").value;
+    let pagesRead = document.querySelector("#pages").value;
+    let read; 
+
+
+    if (readTrue.checked)
+    {
+        read = "Yes"; 
+
+    }else if (readFalse.checked)
+    {
+        read = "No"; 
+    }
+
+    // Create a new card and populate it 
+
 }
