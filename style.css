@@ -114,6 +114,12 @@ header{
 }
 
 
+.delete-container button:hover{
+    color: white;
+    background-color: #392BF5;
+}
+
+
 
 @media only screen and (min-width: 900px)
 {
@@ -128,8 +134,6 @@ header{
       justify-content: space-between;
       margin: 0 2em;
   }
-
-
 }
 
 
