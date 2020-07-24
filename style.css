@@ -120,6 +120,30 @@ header{
 }
 
 
+/* add book form  */
+
+#addBookForm{
+    background-color: white;
+    max-width: 400px;
+    padding: 1em;
+}
+
+#addBookForm div{
+    margin-bottom: 1em;
+}
+
+#formAddBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+
+
+
+
+/* book form */
+
 
 @media only screen and (min-width: 900px)
 {
@@ -135,5 +159,7 @@ header{
       margin: 0 2em;
   }
 }
+
+
 
 
