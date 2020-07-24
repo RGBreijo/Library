@@ -4,13 +4,6 @@ let myLibary = [];
 
 
 
-
-
-
-
-
-
-
 /**
  *  Constructor to create a Book object. 
  * 
@@ -25,4 +18,10 @@ function Book(title, author, pages, read)
     this.author = author; 
     this.pages = pages; 
     this.read = read; 
+}
+
+
+function addBookToLibrary()
+{
+    // 
 }
