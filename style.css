@@ -6,9 +6,9 @@ body{
 
 
 /* mobile header */
-
 header{
-    background-color: lightblue;
+    padding-top: 1em;
+    background-color: #3E42E6;
 }
 
 .titleContainer{
@@ -21,6 +21,7 @@ header{
 .titleContainer h1{
     margin: 0;
     padding: 0; 
+    color: white;
 }
 
 
@@ -37,6 +38,15 @@ header{
     border: none;
     border-radius: 10px;
     padding: 0.5em;
+}
+
+.addBookContainer button{
+    border: none; 
+    border-radius: 10px;
+    padding: 0.5em;
+    font-size: 1em;
+    color: white;
+    background-color: #4C6FFE;
 }
 
 
@@ -102,14 +112,6 @@ header{
     color: #392AF5;
     background-color: #F0F1F6;
 }
-
-
-
-
-
-
-
-
 
 
 
