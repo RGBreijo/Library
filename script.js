@@ -4,8 +4,9 @@ let myLibary = [];
 
 let formAddBtnm = document.querySelector("#addBtnInForm").addEventListener('click', addBookToLibrary);
 
-createBookCards();
-
+createBookCards("Harry Potter", "Rollowing", 243, "Yes"); // add the read status
+createBookCards("Harry Potter", "Rollowing", 243, "Yes"); 
+createBookCards("Harry Potter", "Rollowing", 243, "Yes"); 
 
 /**
  *  Constructor to create a Book object. 
@@ -35,7 +36,6 @@ function addBookToLibrary()
     let pagesRead = document.querySelector("#pages").value;
     let read; 
 
-
     if (readTrue.checked)
     {
         read = "Yes"; 
@@ -53,14 +53,17 @@ function addBookToLibrary()
 
 
 
-function createBookCards()
+function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
 {
 
     let similarDiv = ["title-container", "Author-container", "Pages-container"];
+    let similarDivLabel = ["Title: ", "Author: ", "Pages: "];
+    let book = [titleContent, authorContent, numberOfPages, readStatus];
+
+    let similarDivTracker = 0; 
 
     let bookInfoContainer = document.createElement("div");
     bookInfoContainer.classList.add("bookInfoBlock");
-
 
     for(classNameIndex = 0; classNameIndex < similarDiv.length; classNameIndex++)
     {
@@ -69,9 +72,19 @@ function createBookCards()
         
         for(k = 0; k < 2; k++)
         {
+            let content;
+            if (k == 0) // title, author, pages
+            {
+                    content = similarDivLabel[similarDivTracker];
+            }else
+            {
+                content = book[similarDivTracker];
+                similarDivTracker++;
+            }
+
             bookStyleDiv = document.createElement("div");
             bookStyleDivContent = document.createElement("p");
-            bookStyleDivContent.textContent = "Hello"; 
+            bookStyleDivContent.textContent = content; 
             bookStyleDiv.appendChild(bookStyleDivContent);
     
             bookTitleContainer.appendChild(bookStyleDiv);
@@ -95,7 +108,7 @@ function createBookCards()
 
 
         btn = document.createElement("button");
-        btn.textContent = "Yes"; 
+        btn.textContent = book[book.length - 1]; 
 
         BtnContainerHolder = document.createElement("div");
         BtnContainerHolder.appendChild(btn);
@@ -106,21 +119,22 @@ function createBookCards()
 
 
         // Delete Btn 
-
         deleteBtnContainer = document.createElement("div");
         deleteBtnContainer.classList.add("delete-container");
 
 
         deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "delete"; 
+        deleteBtn.textContent = "Delete"; 
         deleteBtnContainer.appendChild(deleteBtn);
 
         bookInfoContainer.appendChild(deleteBtnContainer);
 
-    console.log(bookInfoContainer);
-
-
+        let bookInfoBlocksContainer = document.querySelector(".bookInfoBlocksContainer");
+        bookInfoBlocksContainer.appendChild(bookInfoContainer);
 }
+
+
+
 
 
 
