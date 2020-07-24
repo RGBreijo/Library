@@ -1,7 +1,11 @@
 body{
     margin: 0; 
     padding: 0; 
+    background-color: #F0F1F6;
 }
+
+
+/* mobile header */
 
 header{
     background-color: lightblue;
@@ -34,5 +38,78 @@ header{
     border-radius: 10px;
     padding: 0.5em;
 }
+
+
+
+
+
+/* mobile book block */
+
+.bookInfoBlock{
+    display: flex; 
+    flex-direction: column;
+    background-color: #F9F8FD;
+    padding: 1em;
+    margin: 0.5em;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.bookInfoBlock strong{
+    color: #0E0C22;
+    font-size: 1.2em;
+}
+
+
+.bookInfoBlock > div:not(.delete-container){
+    display: flex;
+    margin-bottom: 1em;
+}
+
+.bookInfoBlock > div div{
+    margin-right: 1em;
+}
+
+.bookInfoBlock p{
+    margin: 0; 
+    padding: 0;
+    line-height: 1.5em;
+}
+
+.read-container button{
+    border: none; 
+    border-radius: 10px;
+    font-size: 0.8em;
+    padding: 0.3em;
+    width: 50px;
+    background-color: #392AF5;
+    color: white; 
+    border: none;
+    border-radius: 10px;
+}
+
+.delete-container{
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0em;
+}
+
+.delete-container button{
+    border: none; 
+    border-radius: 10px;
+    padding: 0.5em;
+    font-size: 1em;
+    color: #392AF5;
+    background-color: #F0F1F6;
+}
+
+
+
+
+
+
+
+
+
 
 
