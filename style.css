@@ -132,7 +132,7 @@ header{
     margin-bottom: 1em;
 }
 
-#formAddBtn{
+#formAddBtnContainer{
     display: flex;
     justify-content: flex-end;
 }
