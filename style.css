@@ -104,7 +104,7 @@ header{
     margin-bottom: 0em;
 }
 
-.delete-container button{
+.delete-container button, #addBtnInForm{
     border: none; 
     border-radius: 10px;
     padding: 0.5em;
@@ -123,19 +123,75 @@ header{
 /* add book form  */
 
 #addBookForm{
+
     background-color: white;
-    max-width: 400px;
+    max-width: 450px;
     padding: 1em;
+    border-radius: 5px;
 }
 
+
+
+.userInputBoxcontainer{
+    position: fixed;
+    top: 0;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.test{
+    background-color: blue;
+}
 #addBookForm div{
     margin-bottom: 1em;
+}
+
+#addBookForm input{
+    margin-left: 1em;
 }
 
 #formAddBtnContainer{
     display: flex;
     justify-content: flex-end;
 }
+
+.style-away{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#addBtnInForm{
+    width: 60px;
+    background-color: #3E43E5;
+    color: white;
+}
+
+#addBtnInForm:hover{
+    background-color: #4C6FFE;
+    color: white;
+}
+
+.exit-btn-container{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1em;
+}
+
+#input-box-exit-btn{
+    border: none;
+    background-color: #f3f3f3;
+    border-radius: 50%;
+}
+
+
+
 
 
 
