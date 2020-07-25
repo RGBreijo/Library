@@ -3,6 +3,9 @@
 let myLibary = [];
 
 let formAddBtnm = document.querySelector("#addBtnInForm").addEventListener('click', addBookToLibrary);
+let userInputBoxExitBtn = document.querySelector("#input-box-exit-btn").addEventListener('click', exitInputBox);
+let addBookBtn = document.querySelector("#addBookBtn").addEventListener('click', showInputBox);
+
 
 // createBookCards("Harry Potter", "Rollowing", 243, "Yes"); // add the read status
 
@@ -162,15 +165,35 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
 
         deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete"; 
+        deleteBtn.classList.add("deleteBtn");
         deleteBtnContainer.appendChild(deleteBtn);
 
         bookInfoContainer.appendChild(deleteBtnContainer);
 
         let bookInfoBlocksContainer = document.querySelector(".bookInfoBlocksContainer");
         bookInfoBlocksContainer.appendChild(bookInfoContainer);
+
+        
+        let delBox = document.querySelector(".deleteBtn").addEventListener('click', deleteBookBox);
 }
 
 
+function exitInputBox()
+{
+    let inputBoxContainer = document.querySelector(".userInputBoxcontainer");
+    inputBoxContainer.style.visibility = "hidden";
+}
+
+function showInputBox()
+{
+    let inputBoxContainer = document.querySelector(".userInputBoxcontainer");
+    inputBoxContainer.style.visibility = "visible";
+}
+
+function deleteBookBox()
+{
+    console.log("delete");
+}
 
 
 
