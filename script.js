@@ -50,12 +50,19 @@ function addBookToLibrary()
     }else
     {
         console.log(read);
-        myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); // do a check for if .value is empty then do nothing 
-        displayBooksInArray(); // creates each obj in array each time create one card as per specs of assignment. 
+        myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); 
+        createBookCards(bookTitle, bookAuthor, pagesRead, read);
+        
     }
 }
 
 
+
+
+/*
+    Converts all objs in array into book info blocks 
+    called with local storage
+*/
 function displayBooksInArray()
 {
     for(i = 0; i < myLibary.length; i++)
