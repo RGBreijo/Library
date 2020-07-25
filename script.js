@@ -34,6 +34,7 @@ function addBookToLibrary()
     let pagesRead = document.querySelector("#pages").value;
     let read; 
 
+
     if (readTrue.checked)
     {
         read = "Yes"; 
@@ -43,8 +44,15 @@ function addBookToLibrary()
         read = "No"; 
     }
 
-    myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); // do a check for if .value is empty then do nothing 
-    displayBooksInArray();
+    if(bookTitle === "" || bookAuthor === "" || pagesRead === "" || read === undefined)
+    {
+        // do nothing 
+    }else
+    {
+        console.log(read);
+        myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); // do a check for if .value is empty then do nothing 
+        displayBooksInArray(); // creates each obj in array each time create one card as per specs of assignment. 
+    }
 }
 
 
