@@ -52,13 +52,21 @@ function addBookToLibrary()
         // do nothing 
     }else
     {
-        console.log(read);
         myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); 
         createBookCards(bookTitle, bookAuthor, pagesRead, read);
         
     }
 }
 
+
+function clearInputBox()
+{
+    document.querySelector("#title").value = "";
+    document.querySelector("#author").value = "";
+    document.querySelector("#pages").value = ""; 
+    document.querySelector("#readTrue").checked = null; 
+    document.querySelector("#readFalse").checked = null; 
+}
 
 
 
@@ -193,6 +201,7 @@ function exitInputBox()
 
 function showInputBox()
 {
+    clearInputBox();
     let inputBoxContainer = document.querySelector(".userInputBoxcontainer");
     inputBoxContainer.style.visibility = "visible";
 }
