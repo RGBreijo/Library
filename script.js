@@ -4,9 +4,7 @@ let myLibary = [];
 
 let formAddBtnm = document.querySelector("#addBtnInForm").addEventListener('click', addBookToLibrary);
 
-createBookCards("Harry Potter", "Rollowing", 243, "Yes"); // add the read status
-createBookCards("Harry Potter", "Rollowing", 243, "Yes"); 
-createBookCards("Harry Potter", "Rollowing", 243, "Yes"); 
+// createBookCards("Harry Potter", "Rollowing", 243, "Yes"); // add the read status
 
 /**
  *  Constructor to create a Book object. 
@@ -45,13 +43,38 @@ function addBookToLibrary()
         read = "No"; 
     }
 
-    myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read));
-    // console.log(myLibary[0].title);
+    myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); // do a check for if .value is empty then do nothing 
+    displayBooksInArray();
+}
+
+
+function displayBooksInArray()
+{
+    for(i = 0; i < myLibary.length; i++)
+    {
+        let title = myLibary[i].title;
+        let author = myLibary[i].author;
+        let pages = myLibary[i].pages;
+        let read = myLibary[i].read;
+
+        createBookCards(title, author, pages, read);
+    }
 }
 
 
 
 
+
+
+
+/**
+ * Creates a bookCard on the webpage 
+ * 
+ * @param {*} titleContent The book title 
+ * @param {*} authorContent The name of the author 
+ * @param {*} numberOfPages The number of pages 
+ * @param {*} readStatus If the book as been read 
+ */
 
 function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
 {
@@ -122,7 +145,6 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
         deleteBtnContainer = document.createElement("div");
         deleteBtnContainer.classList.add("delete-container");
 
-
         deleteBtn = document.createElement("button");
         deleteBtn.textContent = "Delete"; 
         deleteBtnContainer.appendChild(deleteBtn);
@@ -132,6 +154,8 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
         let bookInfoBlocksContainer = document.querySelector(".bookInfoBlocksContainer");
         bookInfoBlocksContainer.appendChild(bookInfoContainer);
 }
+
+
 
 
 
