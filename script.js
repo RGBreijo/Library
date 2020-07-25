@@ -173,8 +173,15 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
         let bookInfoBlocksContainer = document.querySelector(".bookInfoBlocksContainer");
         bookInfoBlocksContainer.appendChild(bookInfoContainer);
 
-        
-        let delBox = document.querySelector(".deleteBtn").addEventListener('click', deleteBookBox);
+        // Each time it is created need to add it to the btn 
+       let delBox =  Array.from(document.querySelectorAll(".deleteBtn"));
+       for(i = 0; i < delBox.length; i++)
+       {
+            delBox[i].addEventListener('click', deleteBookBox);
+       }
+
+     
+
 }
 
 
@@ -190,9 +197,13 @@ function showInputBox()
     inputBoxContainer.style.visibility = "visible";
 }
 
-function deleteBookBox()
+function deleteBookBox(e)
 {
-    console.log("delete");
+    e = e || window.event;  
+    e = e.target || e.srcElement;
+
+    let boxToDelete = e.parentElement.parentElement;
+    boxToDelete.style.display = "none";
 }
 
 
