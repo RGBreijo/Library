@@ -1,7 +1,10 @@
 
 
+
+var myLibary = [];
 window.addEventListener("load", displayLocalStoageBookArray);
-let myLibary = [];
+
+
 
 let formAddBtnm = document.querySelector("#addBtnInForm").addEventListener('click', addBookToLibrary);
 let userInputBoxExitBtn = document.querySelector("#input-box-exit-btn").addEventListener('click', exitInputBox);
@@ -39,6 +42,8 @@ function addBookToLibrary()
     let read; 
 
 
+
+
     if (readTrue.checked)
     {
         read = "Yes"; 
@@ -53,6 +58,7 @@ function addBookToLibrary()
         // do nothing 
     }else
     {
+
         myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); 
         createBookCards(bookTitle, bookAuthor, pagesRead, read);
         console.log(myLibary);
@@ -206,7 +212,6 @@ function displayLocalStoageBookArray()
 {
 
     myLibary = JSON.parse(localStorage.getItem("myLibary"));
-
 
     if(myLibary != null)
     {
