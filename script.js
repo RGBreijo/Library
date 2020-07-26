@@ -1,5 +1,6 @@
 
 
+window.addEventListener("load", displayLocalStoageBookArray);
 let myLibary = [];
 
 let formAddBtnm = document.querySelector("#addBtnInForm").addEventListener('click', addBookToLibrary);
@@ -54,7 +55,8 @@ function addBookToLibrary()
     {
         myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); 
         createBookCards(bookTitle, bookAuthor, pagesRead, read);
-        
+        console.log(myLibary);
+        saveData();
     }
 }
 
@@ -67,30 +69,6 @@ function clearInputBox()
     document.querySelector("#readTrue").checked = null; 
     document.querySelector("#readFalse").checked = null; 
 }
-
-
-
-/*
-    Converts all objs in array into book info blocks 
-    called with local storage
-*/
-function displayBooksInArray()
-{
-    for(i = 0; i < myLibary.length; i++)
-    {
-        let title = myLibary[i].title;
-        let author = myLibary[i].author;
-        let pages = myLibary[i].pages;
-        let read = myLibary[i].read;
-
-        createBookCards(title, author, pages, read);
-    }
-}
-
-
-
-
-
 
 
 /**
@@ -114,12 +92,12 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
     let bookInfoContainer = document.createElement("div");
     bookInfoContainer.classList.add("bookInfoBlock");
 
-    for(classNameIndex = 0; classNameIndex < similarDiv.length; classNameIndex++)
+    for(let classNameIndex = 0; classNameIndex < similarDiv.length; classNameIndex++)
     {
         let bookTitleContainer = document.createElement("div");
         bookTitleContainer.classList.add(similarDiv[classNameIndex]);
         
-        for(k = 0; k < 2; k++)
+        for(let k = 0; k < 2; k++)
         {
             let content;
             if (k == 0) // title, author, pages
@@ -141,7 +119,6 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
 
         bookInfoContainer.appendChild(bookTitleContainer);
     }
-
 
         // read-container section 
         readContainer = document.createElement("div");
@@ -183,13 +160,12 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
 
         // Each time it is created need to add it to the btn 
        let delBox =  Array.from(document.querySelectorAll(".deleteBtn"));
-       for(i = 0; i < delBox.length; i++)
+       for(let i = 0; i < delBox.length; i++)
        {
             delBox[i].addEventListener('click', deleteBookBox);
        }
 
-     
-
+    
 }
 
 
@@ -212,13 +188,63 @@ function deleteBookBox(e)
     e = e.target || e.srcElement;
 
     let boxToDelete = e.parentElement.parentElement;
+    let bookTitle = e.parentElement.parentElement.firstElementChild.lastElementChild.firstElementChild.textContent;
+
     boxToDelete.style.display = "none";
+    removeItemFromArray(bookTitle);
 }
 
 
 
 
+function saveData()
+{
+    localStorage.setItem("myLibary", JSON.stringify(myLibary));
+}
 
+function displayLocalStoageBookArray()
+{
+
+    myLibary = JSON.parse(localStorage.getItem("myLibary"));
+
+
+    if(myLibary != null)
+    {
+
+        for(let i = 0; i < myLibary.length; i++)
+        {
+            let title = myLibary[i].title;
+            let author = myLibary[i].author;
+            let pages = myLibary[i].pages;
+            let read = myLibary[i].read;
+
+            createBookCards(title, author, pages, read); 
+        }
+    }
+}
+
+
+function removeItemFromArray(title)
+{
+    
+    let amountOfBooks = myLibary.length;
+    let bookTracker = 0; 
+    let foundBook = false; 
+
+    while(!foundBook && bookTracker < amountOfBooks)
+    {
+        if(myLibary[bookTracker].title === title)
+        {
+            myLibary.splice(bookTracker, 1);
+            foundBook = true; 
+            saveData();
+        }else
+        {
+            bookTracker++;
+        }
+          
+    }
+}
 
 
 
