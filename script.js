@@ -1,9 +1,15 @@
 
 
-
-var myLibary = [];
 window.addEventListener("load", displayLocalStoageBookArray);
+let myLibary = [];
 
+if (JSON.parse(localStorage.getItem("myLibary")) != null)
+{
+    myLibary = JSON.parse(localStorage.getItem("myLibary"));
+}
+
+
+// Add the objs stored in local memory to my Library if there are any 
 
 
 let formAddBtnm = document.querySelector("#addBtnInForm").addEventListener('click', addBookToLibrary);
@@ -42,8 +48,6 @@ function addBookToLibrary()
     let read; 
 
 
-
-
     if (readTrue.checked)
     {
         read = "Yes"; 
@@ -58,7 +62,6 @@ function addBookToLibrary()
         // do nothing 
     }else
     {
-
         myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); 
         createBookCards(bookTitle, bookAuthor, pagesRead, read);
         console.log(myLibary);
@@ -202,7 +205,6 @@ function deleteBookBox(e)
 
 
 
-
 function saveData()
 {
     localStorage.setItem("myLibary", JSON.stringify(myLibary));
@@ -210,23 +212,26 @@ function saveData()
 
 function displayLocalStoageBookArray()
 {
+    let content = JSON.parse(localStorage.getItem("myLibary"));
 
-    myLibary = JSON.parse(localStorage.getItem("myLibary"));
-
-    if(myLibary != null)
+    if(content != null)
     {
-
-        for(let i = 0; i < myLibary.length; i++)
-        {
-            let title = myLibary[i].title;
-            let author = myLibary[i].author;
-            let pages = myLibary[i].pages;
-            let read = myLibary[i].read;
-
-            createBookCards(title, author, pages, read); 
-        }
+        for(let i = 0; i < content.length; i++)
+            {
+                let title = content[i].title;
+                let author = content[i].author;
+                let pages = content[i].pages;
+                let read = content[i].read;
+    
+                createBookCards(title, author, pages, read); 
+            }
     }
 }
+
+
+
+
+
 
 
 function removeItemFromArray(title)
