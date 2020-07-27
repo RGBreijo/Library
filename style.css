@@ -104,7 +104,7 @@ header{
     margin-bottom: 0em;
 }
 
-.delete-container button, #addBtnInForm{
+.delete-container button, #addBtnInInputBox{
     border: none; 
     border-radius: 10px;
     padding: 0.5em;
@@ -122,7 +122,7 @@ header{
 
 /* add book form  */
 
-#addBookForm{
+#addInputBox{
 
     background-color: white;
     max-width: 450px;
@@ -149,15 +149,15 @@ header{
 .test{
     background-color: blue;
 }
-#addBookForm div{
+#addInputBox div{
     margin-bottom: 1em;
 }
 
-#addBookForm input{
+#addInputBox input{
     margin-left: 1em;
 }
 
-#formAddBtnContainer{
+#inputBoxaddBtnContainer{
     display: flex;
     justify-content: flex-end;
 }
@@ -168,13 +168,13 @@ header{
 }
 
 
-#addBtnInForm{
+#addBtnInInputBox{
     width: 60px;
     background-color: #3E43E5;
     color: white;
 }
 
-#addBtnInForm:hover{
+#addBtnInInputBox:hover{
     background-color: #4C6FFE;
     color: white;
 }

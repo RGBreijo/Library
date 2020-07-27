@@ -12,7 +12,7 @@ if (JSON.parse(localStorage.getItem("myLibary")) != null)
 // Add the objs stored in local memory to my Library if there are any 
 
 
-let formAddBtnm = document.querySelector("#addBtnInForm").addEventListener('click', addBookToLibrary);
+let formAddBtnm = document.querySelector("#addBtnInInputBox").addEventListener('click', addBookToLibrary);
 let userInputBoxExitBtn = document.querySelector("#input-box-exit-btn").addEventListener('click', exitInputBox);
 let addBookBtn = document.querySelector("#addBookBtn").addEventListener('click', showInputBox);
 
