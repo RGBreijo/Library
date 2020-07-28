@@ -92,7 +92,7 @@ function clearInputBox()
 function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
 {
 
-    let similarDiv = ["title-container", "Author-container", "Pages-container"];
+    let similarDiv = ["book-title-container", "author-container", "pages-container"];
     let similarDivLabel = ["Title: ", "Author: ", "Pages: "];
     let book = [titleContent, authorContent, numberOfPages, readStatus];
 
