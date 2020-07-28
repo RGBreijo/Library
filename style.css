@@ -145,17 +145,6 @@ header{
     background-color: #392BF5;
 }
 
-/* 
-.book-title-container, .author-container, .pages-container, .read-container{
-    background-color: lightblue;
-    padding: 0; 
-    display: flex;
-    margin-right: 1em;
-    width: 300px;
-} */
-
-
-
 
 
 
@@ -190,9 +179,6 @@ header{
     visibility: hidden;
 }
 
-.test{
-    background-color: blue;
-}
 #addInputBox div{
     margin-bottom: 1em;
 }
@@ -233,6 +219,7 @@ header{
     border: none;
     background-color: white;
 }
+
 
 
 
