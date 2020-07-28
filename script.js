@@ -64,7 +64,6 @@ function addBookToLibrary()
     {
         myLibary.push(new Book(bookTitle, bookAuthor, pagesRead, read)); 
         createBookCards(bookTitle, bookAuthor, pagesRead, read);
-        console.log(myLibary);
         saveData();
     }
 }
