@@ -76,9 +76,35 @@ header{
     margin-bottom: 1em;
 }
 
-.bookInfoBlock > div div{
-    margin-right: 1em;
+
+
+.book-title-container div:first-child{
+    margin-right: 2em;
+    font-weight: bold;
 }
+
+
+.author-container div:first-child{
+    margin-right: 0.9em;
+    font-weight: bold;
+}
+
+
+.pages-container div:first-child{
+    margin-right: 1.3em;
+    font-weight: bold;
+}
+
+
+.read-container div:first-child{
+    margin-right: 1.6em;
+    font-weight: bold;
+}
+
+
+
+
+
 
 .bookInfoBlock p{
     margin: 0; 
@@ -118,6 +144,24 @@ header{
     color: white;
     background-color: #392BF5;
 }
+
+/* 
+.book-title-container, .author-container, .pages-container, .read-container{
+    background-color: lightblue;
+    padding: 0; 
+    display: flex;
+    margin-right: 1em;
+    width: 300px;
+} */
+
+
+
+
+
+
+
+
+
 
 
 /* add book form  */
@@ -187,14 +231,8 @@ header{
 
 #input-box-exit-btn{
     border: none;
-    background-color: #f3f3f3;
-    border-radius: 50%;
+    background-color: white;
 }
-
-
-
-
-
 
 
 
@@ -216,8 +254,7 @@ header{
   .bookInfoBlocksContainer{
       display: flex;
       flex-wrap: wrap;
-      /* justify-content: space-between; */
-      justify-content: center;
+      justify-content: space-between;
       margin: 0 2em;
   }
 }
