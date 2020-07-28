@@ -202,8 +202,12 @@ header{
 /* book form */
 
 
-@media only screen and (min-width: 900px)
+@media only screen and (min-width: 700px)
 {
+
+    h1{
+        font-size: 3em;
+    }
   .bookInfoBlock{
       margin-top: 2em;
       min-width: 500px;
@@ -212,11 +216,19 @@ header{
   .bookInfoBlocksContainer{
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
+      /* justify-content: space-between; */
+      justify-content: center;
       margin: 0 2em;
   }
 }
 
+@media only screen and (min-width: 2000px)
+{
+
+  .bookInfoBlocksContainer{
+      justify-content: space-between;
+  }
+}
 
 
 
