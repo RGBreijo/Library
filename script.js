@@ -88,8 +88,11 @@ function clearInputBox()
  * @param {*} readStatus If the book as been read 
  */
 
-function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
+function createBookCards(titleContent, authorContent, numberOfPages, readStatus, e)
 {
+
+    e = e || window.event;  
+    e = e.target || e.srcElement;
 
     let similarDiv = ["book-title-container", "author-container", "pages-container"];
     let similarDivLabel = ["Title: ", "Author: ", "Pages: "];
@@ -142,6 +145,8 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
 
 
         btn = document.createElement("button");
+        btn.classList.add("read-btn");
+
         btn.textContent = book[book.length - 1]; 
 
         BtnContainerHolder = document.createElement("div");
@@ -173,8 +178,64 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus)
             delBox[i].addEventListener('click', deleteBookBox);
        }
 
+       let readBtn =  Array.from(document.querySelectorAll(".read-btn"));
+       for(let i = 0; i < readBtn.length; i++)
+       {
+        readBtn[i].addEventListener('click', readBtnClicked);
+       }
     
 }
+
+function readBtnClicked(e)
+{
+    let readStatus = "Yes"
+
+
+    e = e || window.event;  
+    e = e.target || e.srcElement;
+
+    let bookTitle = e.parentElement.parentElement.parentElement.firstElementChild.lastElementChild.textContent;
+
+
+    // // visually change status 
+    if (e.textContent === "Yes")
+    {
+        readStatus = "No"
+        e.textContent = readStatus;
+
+    }else
+    {
+        e.textContent = readStatus;
+    }
+
+
+    // Update object array 
+    let amountOfBooks = myLibary.length;
+    let bookTracker = 0; 
+    let foundBook = false; 
+
+    while(!foundBook && bookTracker < amountOfBooks)
+    {
+        
+        if(myLibary[bookTracker].title === bookTitle)
+        {
+
+            myLibary[bookTracker].read = readStatus; 
+            foundBook = true;
+            saveData();
+        }else
+        {
+            bookTracker++;
+        }
+          
+    }
+
+    
+
+}
+
+
+
 
 
 function exitInputBox()
