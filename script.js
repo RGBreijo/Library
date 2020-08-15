@@ -92,7 +92,7 @@ function createBookCards(titleContent, authorContent, numberOfPages, readStatus,
 {
 
     e = e || window.event;  
-    e = e.target || e.srcElement;
+    let target = e.target || e.srcElement;
 
     let similarDiv = ["book-title-container", "author-container", "pages-container"];
     let similarDivLabel = ["Title: ", "Author: ", "Pages: "];
@@ -192,20 +192,20 @@ function readBtnClicked(e)
 
 
     e = e || window.event;  
-    e = e.target || e.srcElement;
+    let target = e.target || e.srcElement;
 
-    let bookTitle = e.parentElement.parentElement.parentElement.firstElementChild.lastElementChild.textContent;
+    let bookTitle = target.parentElement.parentElement.parentElement.firstElementChild.lastElementChild.textContent;
 
 
     // // visually change status 
-    if (e.textContent === "Yes")
+    if (target.textContent === "Yes")
     {
         readStatus = "No"
-        e.textContent = readStatus;
+        target.textContent = readStatus;
 
     }else
     {
-        e.textContent = readStatus;
+        target.textContent = readStatus;
     }
 
 
@@ -254,10 +254,10 @@ function showInputBox()
 function deleteBookBox(e)
 {
     e = e || window.event;  
-    e = e.target || e.srcElement;
+    let target = e.target || e.srcElement;
 
-    let boxToDelete = e.parentElement.parentElement;
-    let bookTitle = e.parentElement.parentElement.firstElementChild.lastElementChild.firstElementChild.textContent;
+    let boxToDelete = target.parentElement.parentElement;
+    let bookTitle = target.parentElement.parentElement.firstElementChild.lastElementChild.firstElementChild.textContent;
 
     boxToDelete.style.display = "none";
     removeItemFromArray(bookTitle);
